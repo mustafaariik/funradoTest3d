@@ -5,6 +5,7 @@ using UnityEngine;
 public class Collectables : MonoBehaviour
 {
     [SerializeField] GameObject player;
+    [SerializeField] GameObject door;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -19,6 +20,7 @@ public class Collectables : MonoBehaviour
         {
             player.GetComponent<PlayerController>().SetHasKey(true);
             gameObject.SetActive(false);
+            door.SetActive(false);
         }
     }
 }

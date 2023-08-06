@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] PlayerLevel playerLevel;
     [SerializeField] FloatingText floatingText;
+    [SerializeField] EnemyController enemyController;
     
     void Start()
     {
@@ -42,15 +43,23 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
         if(other.gameObject.tag == "Enemy")
         {
-            Debug.Log("enemy spotted");
-            animator.SetBool("Attack", true);
-            gameObject.SetActive(false);
+            enemyController = other.gameObject.GetComponent<EnemyController>();
+            if(enemyController.GetEnemyLevel() >= playerLevel.GetPlayerLevel())
+            {
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                animator.SetBool("isAttacking", true);
+                other.gameObject.SetActive(false);
+            }
         }
         else
         {
-            animator.SetBool("Attack", false);
+            animator.SetBool("isAttacking", false);
         }
     }
     
