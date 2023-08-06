@@ -7,6 +7,7 @@ TagManager:
   - key
   - LevelUp
   - Enemy
+  - Door
   layers:
   - Default
   - TransparentFX

@@ -20,7 +20,7 @@ public class Collectables : MonoBehaviour
         {
             player.GetComponent<PlayerController>().SetHasKey(true);
             gameObject.SetActive(false);
-            door.SetActive(false);
+            //door.SetActive(false);
         }
     }
 }

@@ -43,7 +43,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.gameObject.tag == "Door" && hasKey)
+        {
+            other.gameObject.SetActive(false);
+            return;
+        }
         if(other.gameObject.tag == "Enemy")
         {
             enemyController = other.gameObject.GetComponent<EnemyController>();
