@@ -10,19 +10,15 @@ public class Collectables : MonoBehaviour
     {
         PlayerLevel playerLevel = other.GetComponent<PlayerLevel>();
 
-        if(playerLevel != null && gameObject.tag == "LevelUp")
-        {
-            gameObject.SetActive(false);
-            Debug.Log(other.gameObject.tag);
+        if(playerLevel != null && gameObject.tag == "LevelUp" && gameObject.activeSelf)
+        { 
+            gameObject.SetActive(false);    
             playerLevel.LevelUpCollected();
-            
         }
         if(gameObject.tag == "key")
         {
             player.GetComponent<PlayerController>().SetHasKey(true);
             gameObject.SetActive(false);
         }
-        
     }
-    
 }

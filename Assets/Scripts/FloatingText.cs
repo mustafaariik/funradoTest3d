@@ -34,5 +34,4 @@ public class FloatingText : MonoBehaviour
     {
         level = charLevel; 
     }
-
 }
